@@ -4,8 +4,8 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('cookbook:server');
+var app = require('./app');
+var debug = require('debug')('webproject:server');
 var http = require('http');
 
 /**
