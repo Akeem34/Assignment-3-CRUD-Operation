@@ -14,4 +14,4 @@ let recipeModel = mongoose.Schema({
     Collection: 'recipes'
 });
 
-module.exports = mongoose.model('Recipe', recipeModel);
+module.exports = mongoose.model('Recipe', recipeModel,'recipelist');

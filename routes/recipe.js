@@ -1,6 +1,6 @@
 let express = require('express');
 let router = express.Router();
-let mongoose = require('moongoose');
+let mongoose = require('mongoose');
 
 
 // this line connected the router with the model we made
@@ -32,3 +32,4 @@ router.get('/',async(req,res,next) =>{
 })
 
 
+module.exports = router;
