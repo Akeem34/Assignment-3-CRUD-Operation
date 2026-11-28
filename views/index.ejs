@@ -1,7 +1,24 @@
 <%- include('partials/header') %> <!-- Includes the Header for each page -->
 <%- include('partials/main_nav') %> <!-- Includes the navigation bar for each page -->
 
+<div class="container my-5"> <!-- From the container page-->
+    <div class="row align-items-center"> <!-- Puts the text and the photo side by side -->
 
+      <div class="col-md-7">
+        <h1 class="display-5 f-bold">Hi, I'm Chef Audrey</h1> <!--fw-bold is the font followed by bolding -->
+        <p>I'm the head chef at the NodeJS kitchen!</p>
+        <p>This is my online cookbook, have a look and add some of your own!</p>
 
+        <a class="btn btn-dark btn-lg me-2 mb-2" href="/recipes"><i class="fa-solid fa-book-open"></i> Open the Cook Book!</a>
+        <a class="btn btn-outline-dark btn-lg mb-2" href="/recipes/add"><i class="fa-solid fa-plus"></i> Add your Own!</a>
+      </div>
+
+      <div class="col-md-5 text-center">
+        <img src="/images/Chef.jpg" class="img-fluid rounded-3 shadow" alt="Photo of a Chef">
+      </div>
+
+    </div>
+  </div>
+</div>
 
 <%- include('partials/footer') %> <!-- Includes the footer for each page -->
