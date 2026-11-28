@@ -17,7 +17,6 @@
                 </tr>
 
 
-                <!--Columns: loop once for every recipe in the Recipelist array-->
                 <% for(let count=0; count<Recipelist.length; count++) { %>
                 <tr>
                     <td class="text-center col-2"><%= Recipelist[count].name %></td>
@@ -26,12 +25,12 @@
                     <td class="text-center col-1"><%= Recipelist[count].prepTime %></td>
                     <td class="text-center col-4"><%= Recipelist[count].description %></td>
                     <td class="text-center col-3">
-                        <a class="btn btn-primary btn-sm" href="/recipes/edit/<%= Recipelist[count]._id %>">Edit</a>
+                        <a class="btn btn-primary btn-sm" href="/Recipes/edit/<%= Recipelist[count]._id %>">Edit</a>
 
 
 
 
-                        <form class="d-inline" method="POST" action="/recipes/delete/<%= Recipelist[count]._id %>"
+                        <form class="d-inline" method="POST" action="/Recipes/delete/<%= Recipelist[count]._id %>"
                               onsubmit="return confirm('Delete this recipe?');">
                             <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                         </form>

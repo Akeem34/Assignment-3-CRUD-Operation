@@ -5,6 +5,7 @@ let mongoose = require('mongoose');
 
 // this line connected the router with the model we made
 let Recipe = require('../models/recipe');
+const recipe = require('../models/recipe');
 
 
 // Reading operation
@@ -41,7 +42,7 @@ router.get('/add', async(req,res,next) => {
     }
 });
 
-//Posting operations
+//Adding operations
 router.post('/add', async(req,res,next) => {
      try{ 
         let newRecipe = Recipe({
@@ -71,7 +72,7 @@ router.get('/edit/:id', async(req,res,next) => {
     try{ 
         const id = req.params.id;
         const recipeToEdit = await Recipe.findById(id);
-        res.render('/Recipes/edit',{
+        res.render('Recipes/edit',{
             title:'Edit Recipe',
             Recipe:recipeToEdit
         })
@@ -86,9 +87,63 @@ router.get('/edit/:id', async(req,res,next) => {
 
 
 
-//Getting operations
-router.post('/delete/:id', async(req,res,next) => {});
+//Posting operations
+router.post('/edit/:id', async(req,res,next) => {
 
+
+    try{
+        let id = req.params.id;
+        let updatedRecipe = Recipe({
+
+            '_id':id,
+            "name":req.body.name,
+            "type":req.body.type,
+            "servings":req.body.servings,
+            "prepTime":req.body.prepTime,
+            "description":req.body.description,
+            "instructions":req.body.instructions
+        })
+        Recipe.findByIdAndUpdate(id,updatedRecipe).then(()=>{
+
+            res.redirect('/recipes')
+        })
+        
+    
+          
+    }
+    catch(err){
+        console.error(err);
+        res.render('Recipes/list',{
+            error:'Error on server'})
+    }
+
+
+
+
+});
+
+
+
+
+
+//Getting operations
+router.post('/delete/:id', async(req,res,next) => {
+    try{ 
+        let id = req.params.id;
+        Recipe.deleteOne({_id:id}).then(()=>{
+            res.redirect('/recipes')
+        })
+        
+    }
+    catch(err){
+        res.render('Recipes/list',{
+            error:'Error on server'
+        })
+    }
+
+
+
+});
 
 
 module.exports = router;
