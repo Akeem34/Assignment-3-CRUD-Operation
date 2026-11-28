@@ -1,0 +1,67 @@
+<%- include('../partials/header') %>
+<%- include('../partials/main_nav') %>
+
+<div class="container">
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            <h1><%= title %></h1>
+            <!-- POST sends the fields to the route that creates the recipe -->
+            <form class="form" method="post">
+
+                <div class="form-group">
+                    <label for="nameTextField">Recipe Name</label>
+                    <input type="text" class="form-control" id="nameTextField"
+                           placeholder="Enter name" name="name" required>
+                </div>
+                <br>
+
+                <!-- Dropdown: the options match the enum list in models/recipe.js -->
+                <div class="form-group">
+                    <label for="typeSelect">Recipe Type</label>
+                    <select class="form-select" id="typeSelect" name="type" required>
+                        <option value="" selected disabled>Select a type</option>
+                        <option value="Breakfast">Breakfast</option>
+                        <option value="Lunch">Lunch</option>
+                        <option value="Dinner">Dinner</option>
+                        <option value="Dessert">Dessert</option>
+                        <option value="Snack">Snack</option>
+                    </select>
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="servingsTextField">Number of Servings</label>
+                    <input type="number" min="1" class="form-control" id="servingsTextField"
+                           placeholder="Enter the number of servings" name="servings" required>
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="prepTimeTextField">Prep Time (minutes)</label>
+                    <input type="number" min="1" class="form-control" id="prepTimeTextField"
+                           placeholder="Enter the prep time in minutes" name="prepTime" required>
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="descriptionTextField">Description</label>
+                    <input type="text" class="form-control" id="descriptionTextField"
+                           placeholder="Enter a brief description" name="description" required>
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="instructionsTextField">Instructions</label>
+                    <textarea class="form-control" id="instructionsTextField" rows="5"
+                              placeholder="Enter the instructions" name="instructions" required></textarea>
+                </div>
+                <br>
+
+                <button class="btn btn-primary" type="submit" href="/recipes"><i class="fas fa-edit"></i> Submit</button>
+                <a href="/recipes" class="btn btn-danger"><i class="fas fa-undo"></i> Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>

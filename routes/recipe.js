@@ -15,21 +15,80 @@ router.get('/',async(req,res,next) =>{
         res.render('Recipes/list',{
             title:'Recipes',
             Recipelist:Recipelist
-
         })
     }
     catch(err){
         res.render('Recipes/list',{
             error:'Error on server'
-
-
         })
-
-
     }
-
-
 })
+
+// Creation operation
+
+//Getting operations
+router.get('/add', async(req,res,next) => {
+
+    try{ res.render('Recipes/add',{
+        title: 'Add Recipe'
+    });
+        
+    }
+    catch(err){
+        res.render('Recipes/list',{
+            error:'Error on server'
+        })
+    }
+});
+
+//Posting operations
+router.post('/add', async(req,res,next) => {
+     try{ 
+        let newRecipe = Recipe({
+            "name":req.body.name,
+            "type":req.body.type,
+            "servings":req.body.servings,
+            "prepTime":req.body.prepTime,
+            "description":req.body.description,
+            "instructions":req.body.instructions
+        });
+        Recipe.create(newRecipe).then(() =>{
+            res.redirect('/recipes')
+        });   
+    }
+    catch(err){
+        res.render('Recipes/list',{
+            error:'Error on server'
+        })
+    }
+});
+
+
+
+
+//Updating operations
+router.get('/edit/:id', async(req,res,next) => {
+    try{ 
+        const id = req.params.id;
+        const recipeToEdit = await Recipe.findById(id);
+        res.render('/Recipes/edit',{
+            title:'Edit Recipe',
+            Recipe:recipeToEdit
+        })
+          
+    }
+    catch(err){
+        console.error(err);
+        next(err);
+        }
+ 
+});
+
+
+
+//Getting operations
+router.post('/delete/:id', async(req,res,next) => {});
+
 
 
 module.exports = router;

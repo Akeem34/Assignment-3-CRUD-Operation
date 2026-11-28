@@ -19,32 +19,21 @@
                             <% } %>
                 </li>
 
+
+                
                 <li class="nav-item">
-                    <% if(title=="About Me" || title=="About" ){ %>
-                        <a class="nav-link active" aria-current="page" href="/About"><i class="fa-regular fa-user"></i>
-                            About Me</a>
-                        <% } else { %>
-                            <a class="nav-link" href="/About"><i class="fa-regular fa-user"></i> About Me</a>
-                            <% } %>
+                    <% if (title == 'Recipes') { %>
+                        <a class="nav-link active" aria-current="page" href="/recipes">
+                            <i class="fa-solid fa-utensils"></i> Recipes
+                        </a>
+                    <% } else { %>
+                        <a class="nav-link" href="/recipes">
+                            <i class="fa-solid fa-utensils"></i> Recipes
+                        </a>
+                    <% } %>
                 </li>
 
-                <li class="nav-item">
-                    <% if(title=="Projects" ){ %>
-                        <a class="nav-link active" aria-current="page" href="/Projects"><i
-                                class="fa-solid fa-list-check"></i> Projects</a>
-                        <% } else { %>
-                            <a class="nav-link" href="/Projects"><i class="fa-solid fa-list-check"></i> Projects</a>
-                            <% } %>
-                </li>
-
-                <li class="nav-item">
-                    <% if(title=="Contact" ){ %>
-                        <a class="nav-link active" aria-current="page" href="/Contact"><i
-                                class="fa-regular fa-address-book"></i> Contact</a>
-                        <% } else { %>
-                            <a class="nav-link" href="/Contact"><i class="fa-regular fa-address-book"></i> Contact</a>
-                            <% } %>
-                </li>
+                
             </ul>
         </div>
     </div>

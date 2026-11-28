@@ -2,3 +2,10 @@ Code for .env file usage : https://www.youtube.com/watch?v=-NfsmF-6BHo
 
 
 https://www.geeksforgeeks.org/mongodb/how-to-create-and-use-enum-in-mongoose/ Enum for scheme creation
+
+
+
+Dropdown sections for meal type in add/recipe :https://www.w3schools.com/bootstrap5/bootstrap_form_select.php
+
+
+type = number for servings in add/recipe : https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_input_type_number
