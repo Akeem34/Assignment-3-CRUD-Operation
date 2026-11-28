@@ -14,7 +14,7 @@ var app = express();
 // Using Node.js `require()`
 const mongoose = require('mongoose');
 let DB = require('./config/db');
-mongoose.connect(DB.URI);
+mongoose.connect(DB.MONGO_URI);
 let mongoDB = mongoose.connection;
 mongoDB.on('error',console.error.bind(console,'Connection'));
 mongoDB.once('open',() =>{
